@@ -40,7 +40,7 @@ def is_64bit():
     return is_windows_64bit()
   return '64' in platform.architecture()[0]
 
-HTTP_TIMEOUT = 15.0
+HTTP_TIMEOUT = 60.0
 
 FISHCOOKING_URL = 'https://github.com/mcostalba/FishCooking'
 ARCH = 'ARCH=x86-64-modern' if is_64bit() else 'ARCH=x86-32'
@@ -49,7 +49,7 @@ MAKE_CMD = 'make COMP=gcc ' + ARCH
 
 if IS_WINDOWS:
   EXE_SUFFIX = '.exe'
-  MAKE_CMD = 'make COMP=mingw ' + ARCH
+  MAKE_CMD = 'mingw32-make COMP=mingw ' + ARCH
 
 def printout(s):
   print s

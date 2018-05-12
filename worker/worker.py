@@ -10,7 +10,7 @@ import requests
 import time
 import traceback
 import uuid
-from ConfigParser import SafeConfigParser
+from ConfigParser import ConfigParser
 from optparse import OptionParser
 from games import run_games
 from updater import update
@@ -19,7 +19,7 @@ from datetime import datetime
 WORKER_VERSION = 64
 ALIVE = True
 
-HTTP_TIMEOUT = 15.0
+HTTP_TIMEOUT = 60.0
 
 def printout(s):
   print s
@@ -27,7 +27,7 @@ def printout(s):
 
 def setup_config_file(config_file):
   ''' Config file setup, adds defaults if not existing '''
-  config = SafeConfigParser()
+  config = ConfigParser()
   config.read(config_file)
 
   defaults = [('login', 'username', ''), ('login', 'password', ''),
